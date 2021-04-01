@@ -1,0 +1,5 @@
+- 👋 Hi, I’m @Code1Tech!
+- 👀 I’m interested in software.
+- 🌱 I’m currently learning how to make basic apps.
+- 💞️ I’m looking to collaborate on nothing as of now.
+- 📫 How to reach me ... Not telling lol
