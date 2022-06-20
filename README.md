@@ -1,5 +1,12 @@
-- 👋 Hi, I’m @Code1Tech!
-- 👀 I’m interested in software.
-- 🌱 I’m currently learning how to make basic apps.
-- 💞️ I’m looking to collaborate on nothing as of now.
-- 📫 How to reach me ... Not telling lol
+howdy
+
+i like software development
+
+i also like making uis because i am a bad c# coder
+
+yeah
+
+i use `python`, `lua` & `luac/roblox lua`, `native javascript`, `markup langs (html, css)`, `c# (im bad at it)`, and a bit of `c++`.
+i also know how to use cheat engine :p
+
+ok bye
