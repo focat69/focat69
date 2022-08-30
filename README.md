@@ -2,7 +2,7 @@ howdy
 
 i like software development
 
-i also like making uis because i am a bad c# coder
+i also like making uis because i am a bad coder
 
 yeah
 
