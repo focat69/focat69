@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@focat ª⁗</title>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- wave.js -->
+	<script src="https://cdn.jsdelivr.net/gh/foobar404/wave.js/dist/bundle.js"></script>
+
+    <style>
+        /* Inter Font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp8017938.jpg&f=1&nofb=1&ipt=de17edbfa36f76929ee69be479e4180b062173b833fea1e373861c9f11762893&ipo=images') no-repeat center fixed;
+            overflow-y: hidden;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .center-box {
+            position: relative;
+            padding: 20px;
+            border-radius: 10px;
+            width: 700px;
+            max-width: 100%;
+        }
+        .center-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #1a1a1e;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            /* blur */
+            -webkit-filter: blur(1px);
+            filter: blur(1px);
+            z-index: -1;
+        }
+        .center-box-content {
+            position: relative;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid #1a1a1e;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+            object-fit: cover;
+        }
+
+        .username {
+            margin-top: 8px;
+            font-size: 36px;
+            font-weight: 700;
+            color: rgb(226, 226, 226);
+            text-align: left;
+            padding-left: 12px;
+        }
+        .description {
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: 400;
+            color: rgb(172, 172, 172);
+            text-align: left;
+            padding-left: 12px;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 1px solid #5f5f5f;
+            border-radius: 5px;
+            background-color: transparent;
+            color: rgb(226, 226, 226);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+
+            margin-left: 12px;
+            text-decoration: none;
+            overflow: hidden;
+            position: relative;
+            white-space: nowrap;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .btn:hover {
+            border: 1px solid #727272;
+            padding-right: 40px;
+        }
+
+        .btn::after {
+            content: ">";
+            position: absolute;
+            opacity: 0;
+            transition: all .3s;
+            line-height: 1;
+            right: 24px;
+        }
+        .btn:hover::after {
+            opacity: 1;
+            transform: translateX(10px);
+        }
+
+        .social-btn {
+            margin-top: 20px;
+            padding: 0;
+            border: 1px solid #5f5f5f;
+            border-radius: 50%; /* Make the button a circle */
+            background-color: transparent;
+            color: rgb(226, 226, 226);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-left: 12px;
+            text-decoration: none;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            transition: all 0.3s;
+            overflow: hidden;
+            display: inline-flex;
+        }
+        .social-btn #svg {
+            width: 50%;
+            height: 50%;
+        }
+        .social-btn:hover {
+            border: 1px solid #727272;
+        }
+        #icon {
+            transition: all 0.3s;
+        }
+        #icon:hover {
+            fill: #727272;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.644);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            user-select: none;
+
+            z-index: 999;
+        }
+
+        .wavecanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .song_name {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 0;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 400;
+            color: rgb(172, 172, 172);
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <p>click to enter</p>
+    </div>
+    
+    <div class="center">
+        <div class="center-box">
+            <canvas id="wave" class="wavecanvas"></canvas>
+            <div class="center-box-content">
+                <!-- <img class="avatar" src="https://cdn.discordapp.com/attachments/1169494615737516112/1207828874168242297/meow.png?ex=65e1114b&is=65ce9c4b&hm=0f8b35e047299aabce677a5ea383156432250a7cd16e66061811a518b5723cea&" alt="avatar" /> -->
+                <img class="avatar" src="pfp.jpg" alt="avatar" />
+                <div class="username">focat</div>
+                <div class="description">Programmer & UI/UX Designer</div>
+                <a href="" class="btn">Get in touch</a>
+                <br>
+                <a href="https://discord.com/users/676960182621962271" class="social-btn" target="_blank">
+                    <svg id="svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0,0,256,256">
+                        <g id="icon" fill="#5f5f5f" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M41.625,10.76953c-3.98047,-3.20313 -10.27734,-3.74609 -10.54687,-3.76563c-0.41797,-0.03516 -0.81641,0.19922 -0.98828,0.58594c-0.01562,0.02344 -0.15234,0.33984 -0.30469,0.83203c2.63281,0.44531 5.86719,1.33984 8.79297,3.15625c0.46875,0.28906 0.61328,0.90625 0.32422,1.375c-0.19141,0.30859 -0.51562,0.47656 -0.85156,0.47656c-0.17969,0 -0.36328,-0.05078 -0.52734,-0.15234c-5.03125,-3.12109 -11.3125,-3.27734 -12.52344,-3.27734c-1.21094,0 -7.49609,0.15625 -12.52344,3.27734c-0.46875,0.29297 -1.08594,0.14844 -1.375,-0.32031c-0.29297,-0.47266 -0.14844,-1.08594 0.32031,-1.37891c2.92578,-1.8125 6.16016,-2.71094 8.79297,-3.15234c-0.15234,-0.49609 -0.28906,-0.80859 -0.30078,-0.83594c-0.17578,-0.38672 -0.57031,-0.62891 -0.99219,-0.58594c-0.26953,0.01953 -6.56641,0.5625 -10.60156,3.80859c-2.10547,1.94922 -6.32031,13.33984 -6.32031,23.1875c0,0.17578 0.04688,0.34375 0.13281,0.49609c2.90625,5.10938 10.83984,6.44531 12.64844,6.50391c0.00781,0 0.01953,0 0.03125,0c0.32031,0 0.62109,-0.15234 0.80859,-0.41016l1.82813,-2.51562c-4.93359,-1.27344 -7.45312,-3.4375 -7.59766,-3.56641c-0.41406,-0.36328 -0.45312,-0.99609 -0.08594,-1.41016c0.36328,-0.41406 0.99609,-0.45312 1.41016,-0.08984c0.05859,0.05469 4.69922,3.99219 13.82422,3.99219c9.14063,0 13.78125,-3.95312 13.82813,-3.99219c0.41406,-0.35937 1.04297,-0.32422 1.41016,0.09375c0.36328,0.41406 0.32422,1.04297 -0.08984,1.40625c-0.14453,0.12891 -2.66406,2.29297 -7.59766,3.56641l1.82813,2.51563c0.1875,0.25781 0.48828,0.41016 0.80859,0.41016c0.01172,0 0.02344,0 0.03125,0c1.80859,-0.05859 9.74219,-1.39453 12.64844,-6.50391c0.08594,-0.15234 0.13281,-0.32031 0.13281,-0.49609c0,-9.84766 -4.21484,-21.23828 -6.375,-23.23047zM18.5,30c-1.93359,0 -3.5,-1.78906 -3.5,-4c0,-2.21094 1.56641,-4 3.5,-4c1.93359,0 3.5,1.78906 3.5,4c0,2.21094 -1.56641,4 -3.5,4zM31.5,30c-1.93359,0 -3.5,-1.78906 -3.5,-4c0,-2.21094 1.56641,-4 3.5,-4c1.93359,0 3.5,1.78906 3.5,4c0,2.21094 -1.56641,4 -3.5,4z"></path></g></g>
+                    </svg>
+                </a>
+                <a href="https://youtube.com/@focat" class="social-btn" target="_blank">
+                    <svg id="svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0,0,256,256">
+                        <g fill="#5f5f5f" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(3.55556,3.55556)"><path d="M61.115,18.856c2.551,2.647 2.885,6.853 2.885,17.144c0,10.291 -0.334,14.497 -2.885,17.144c-2.552,2.647 -5.209,2.856 -25.115,2.856c-19.906,0 -22.563,-0.209 -25.115,-2.856c-2.551,-2.647 -2.885,-6.853 -2.885,-17.144c0,-10.291 0.334,-14.497 2.885,-17.144c2.551,-2.647 5.209,-2.856 25.115,-2.856c19.906,0 22.563,0.209 25.115,2.856zM31.464,44.476l13.603,-8.044l-13.603,-7.918z"></path></g></g>
+                    </svg>
+                </a>
+                <a href="https://t.me/hellaconsumed" class="social-btn" target="_blank">
+                    <svg width="45%" height="45%" style="margin-bottom:-3px;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="10" height="10" viewBox="0,0,256,256"><g fill="#5f5f5f" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(9.66667,9.66667)"><path d="M9.417,15.181l-0.397,5.584c0.568,0 0.814,-0.244 1.109,-0.537l2.663,-2.545l5.518,4.041c1.012,0.564 1.725,0.267 1.998,-0.931l3.622,-16.972l0.001,-0.001c0.321,-1.496 -0.541,-2.081 -1.527,-1.714l-21.29,8.151c-1.453,0.564 -1.431,1.374 -0.247,1.741l5.443,1.693l12.643,-7.911c0.595,-0.394 1.136,-0.176 0.691,0.218z"></path></g></g></svg>
+                </a>
+                <a href="https://www.roblox.com/users/114830245/profile" class="social-btn" target="_blank">
+                    <svg width="45%" height="45%" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
+                        <g fill="#5f5f5f" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.09,5.09)"><path d="M12.125,1.99805c-0.43898,0.01834 -0.81457,0.32104 -0.92578,0.74609l-9.16602,34.83203c-0.06779,0.25668 -0.03074,0.52977 0.10298,0.75911c0.13372,0.22934 0.35314,0.3961 0.60991,0.46354l34.83398,9.16797c0.25668,0.06779 0.52977,0.03074 0.75911,-0.10298c0.22934,-0.13372 0.3961,-0.35314 0.46354,-0.60991l9.16602,-34.83398c0.06779,-0.25668 0.03074,-0.52977 -0.10298,-0.75911c-0.13372,-0.22934 -0.35314,-0.3961 -0.60991,-0.46354l-34.83398,-9.16602c-0.09674,-0.02587 -0.19681,-0.03706 -0.29687,-0.0332zM21.5,19l9.5,2.5l-2.5,9.5l-9.5,-2.5z"></path></g></g>
+                    </svg>
+                </a>
+                <a href="https://namemc.com/profile/l2ck.2" class="social-btn" target="_blank">
+                    <img id="svg" src="namemc.png" />
+                </a>
+                <!--       -->
+                <p class="song_name" id="songname">Playing <b>...</b></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="sparkle.js"></script> very annoying -->
+    <script>
+        // stop selection, rightclick, and inspect element keys
+        // document.oncontextmenu = function() {return false;};
+        // document.onkeydown = function(e) {
+        //     if (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 123)) {
+        //         return false;
+        //     }
+        // };
+        // document.onselectstart = function() {return false;};
+
+        $(document).ready(function() {
+            $('.overlay').click(function() {
+                // turn off event
+                $(this).off();
+
+                $(this).fadeOut(500);
+
+                const possibleSongs = ["Already Rich.mp3", "A2Z.mp3", "pain1993.mp3", "Jay Hound x Jay5ive - AFRICA.mp3"];
+                const song = possibleSongs[Math.floor(Math.random() * possibleSongs.length)];
+                $('#songname').html(`Playing <b>${song.replace('.mp3', '')}</b>`);
+
+                // create music tag
+                var audio = document.createElement('audio');
+                audio.src = song;
+                audio.autoplay = true;
+                audio.loop = true;
+                audio.preload = 'auto';
+                document.body.appendChild(audio);
+                audio.play();
+
+                const wavecanvas = document.getElementById('wave');
+                const wave = new Wave(audio, wavecanvas);
+                // wave.addAnimation(new wave.animations.Square({
+                //     count: 50,
+                //     diamater: 150,
+                //     lineColor: "#5f5f5f"
+                // }));
+                wave.addAnimation(new wave.animations.Lines({
+                    count: 50,
+                    frequencyBand: "mids",
+                    lineColor: "#303030"
+                }));
+                // wave.addAnimation(new wave.animations.Glob({
+                //     fillColor: {gradient: ["#5f5f5f", "#727272", "#5f5f5f"], rotate: 45},
+                //     lineWidth: 1,
+                //     lineColor: "#5f5f5f"
+                // }));
+            });
+        });
+    </script>
+</body>
+</html>
