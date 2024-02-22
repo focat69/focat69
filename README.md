@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Focat @code1tech/@focat</h1>
-<h3 align="center">Fullstack Developer &#127470;&#127475</h3>
+<h3 align="center">Fullstack Developer</h3>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=code1tech&label=Profile%20views&color=8caaee&style=for-the-badge" alt="code1tech's profile views" /> </p>
