@@ -33,6 +33,7 @@
 - **Software**:
   
   ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+  ![Windows](https://img.shields.io/badge/Windows-%2314355C?style=for-the-badge&logo=windows&logoColor=white)
   ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white)
   ![Github](https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white)
   ![Git](https://img.shields.io/badge/Git-orange?style=for-the-badge&logo=github&logoColor=white)
