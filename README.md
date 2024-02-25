@@ -17,20 +17,22 @@
 
 - **Languages**:
 
-  ![Python](https://img.shields.io/badge/Python-beginnner-%2314354C?style=for-the-badge&logo=python&logoColor=white)
-
+  ![Python](https://img.shields.io/badge/Python-expert-%2314354C?style=for-the-badge&logo=python&logoColor=white)
+  ![JavaScript](https://img.shields.io/badge/Javascript-advanced-%ffffff?style=for-the-badge&logo=javascript&logoColor=yellow)
+  ![C#](https://img.shields.io/badge/csharp-advanced-%2314354C?style=for-the-badge&logo=csharp&logoColor=white)
+  ![MongoDB](https://img.shields.io/badge/mongodb-advanced-%2314354?style=for-the-badge&logo=mongodb&logoColor=green)
+  ![Lua](https://img.shields.io/badge/LUA-expert-%2314355C?style=for-the-badge&logo=lua&logoColor=white)
   i need to add more!!
 
   <br>
   
 - **Frameworks**:
   
-  i need to fill ynis out tmrw
+  i need to fill ynis out but im too lazy
   
 - **Software**:
   
   ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-  ![Pop!_OS](https://img.shields.io/badge/-Pop!__OS-cyan?style=for-the-badge&logo=popos&logoColor=black)
   ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white)
   ![Github](https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white)
   ![Git](https://img.shields.io/badge/Git-orange?style=for-the-badge&logo=github&logoColor=white)
