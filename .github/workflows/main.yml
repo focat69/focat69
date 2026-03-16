@@ -19,14 +19,14 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           committer_message: "chore: update metrics"
 
-          plugin_sponsors: yes
-          plugin_sponsors_sections: about, list
+          #plugin_sponsors: yes
+          #plugin_sponsors_sections: about, list
 
           plugin_introduction: yes
           plugin_introduction_title: yes
 
-          plugin_notable: yes
-          plugin_notable_from: organization
-          plugin_notable_types: pull_request, issue
+          #plugin_notable: yes
+          #plugin_notable_from: organization
+          #plugin_notable_types: pull_request, issue
 
           plugin_traffic: yes
