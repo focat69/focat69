@@ -4,7 +4,7 @@
 ---
 
 <p align="center">
-  16 yr old • full-stack developer of 6 years
+  17 yr old • full-stack developer of 6 years
   <br>
   📧 <code>focat@vnna.gg</code> • 🔗 <code>@focat</code> on discord
 </p>
