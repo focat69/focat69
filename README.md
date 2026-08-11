@@ -7,6 +7,8 @@
   17 yr old • full-stack developer of 6 years
   <br>
   📧 <code>focat@vnna.gg</code> • 🔗 <code>@focat</code> on discord
+  <br>
+  🎱 Most of my work is proprietary, so you won’t find all of it here.
 </p>
 
 ---
