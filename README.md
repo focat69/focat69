@@ -35,7 +35,7 @@
 
 ---
 
-<p>
+<!-- <p>
   <img src="github-metrics.svg" width="54%" align="top">
   <img src="readme_assets/yeah.jpg" width="45%">
-</p>
+</p> -->
