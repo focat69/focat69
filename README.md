@@ -26,7 +26,7 @@
 
 ### ୨୧ ➜ tools
 
-`figma` `photoshop` `fl studio` `blender` `ahk` `openiv`
+`figma` `photoshop` `fl studio` `roblox studio` `blender` `ahk` `openiv`
 
 ### ୨୧ ➜ learning
 
